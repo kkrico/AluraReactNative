@@ -1,29 +1,32 @@
 import styles from "./Styles";
-import React, { Component } from 'react';
+import React from 'react';
 import { TouchableOpacity, View, Image, TextInput } from 'react-native';
 
 class InputComentario extends React.Component {
     constructor(props) {
         super(props);
-
         this.state = {
             valorComentario: ""
         }
     }
 
     render() {
-        const { setRef, carregaComentario } = this.props;
+        const { comentarioCallBack } = this.props;
         return (<View style={styles.novoComentario}>
             <TextInput placeholder="Adicione um comentário" style={styles.input}
-                ref={setRef}
+                ref={input => this.inputComentario = input}
                 onChangeText={text => this.setState({ valorComentario: text })}
             ></TextInput>
-            <TouchableOpacity onPress={carregaComentario}>
+            <TouchableOpacity onPress={
+                () => {
+                    comentarioCallBack(this.state.valorComentario, this.inputComentario);
+                    this.setState({valorComentario : ""});
+                }
+            }>
                 <Image style={styles.botaoEnviar} source={require("../../resources/img/send.png")} />
             </TouchableOpacity>
         </View>)
     }
 }
 
-
-export default InputComentario
+export default InputComentario;

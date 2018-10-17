@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import styles from "./Styles";
-import comApresentaNadaSeListaVazia from "./comApresentaNadaSeListaVazia";
+import comApresentaNadaSeListaVazia from "./util/comApresentaNadaSeListaVazia";
 
 const innerLikers = ({likers}) => {
     return <Text style={styles.curtidas}>{likers.length} {likers.length > 1 ? "curtidas" : "curtida"}</Text>
@@ -9,8 +9,8 @@ const innerLikers = ({likers}) => {
 
 const Likers = comApresentaNadaSeListaVazia(innerLikers);
 
-const LikersComPropsLista = (props) => {
+const LikersComPropsAsLista = (props) => {
     const innerProps = {...props, lista : props.likers};
     return <Likers {...innerProps}/>
 }
-export default LikersComPropsLista;
+export default LikersComPropsAsLista;

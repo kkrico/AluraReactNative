@@ -1,11 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React, { Component } from 'react';
 import { KeyboardAvoidingView, Dimensions, FlatList, ScrollView, Platform, StyleSheet, Text, View, Image } from 'react-native';
 import Post from "./src/components/Post";
@@ -25,13 +17,13 @@ export default class App extends Component {
     componentDidMount() {
         InstaluraAPI
             .getAllFotos()
-            .then(photos => this.setState({ fotos: photos }))
+            .then(fotos => this.setState({ fotos: fotos }))
     }
 
     render() {
 
         return (
-            <KeyboardAvoidingView behavior="padding" >
+            <KeyboardAvoidingView >
                 <FlatList style={styles.container}
                     keyExtractor={foto => ("" + foto.id)}
                     data={this.state.fotos}

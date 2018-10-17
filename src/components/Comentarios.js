@@ -1,5 +1,5 @@
 import React from 'react';
-import comApresentaNadaSeListaVazia from "./comApresentaNadaSeListaVazia";
+import comApresentaNadaSeListaVazia from "./util/comApresentaNadaSeListaVazia";
 import { Text, View } from 'react-native';
 import styles from "./Styles";
 
@@ -15,9 +15,9 @@ const innerComentarios = ({comentarios}) => {
 
 const Comentarios = comApresentaNadaSeListaVazia(innerComentarios);
 
-const ComentariosComPropsLista = (props) => {
+const ComentariosComPropsAsLista = (props) => {
     const innerProps = {...props, lista : props.comentarios};
     return <Comentarios {...innerProps}/>
 }
 
-export default ComentariosComPropsLista;
+export default ComentariosComPropsAsLista;

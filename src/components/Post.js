@@ -1,11 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React, { Component } from 'react';
 import { Platform, KeyboardAvoidingView, Dimensions, TouchableOpacity, Text, View, Image, TextInput } from 'react-native';
 const width = Dimensions.get("screen").width;
@@ -21,7 +13,6 @@ export default class Post extends Component {
 
         this.state = {
             foto: this.props.foto,
-            valorComentario: ""
         }
     }
 
@@ -47,14 +38,14 @@ export default class Post extends Component {
         this.input = input;
     }
 
-    carregaComentario() {
-        if (this.state.valorComentario == "")
+    carregaComentario(valorComentario, inputComentario) {
+        if (valorComentario == "")
             return;
 
         const novaLista = [...this.state.foto.comentarios, {
-            id: this.state.valorComentario,
-            loginusuario : "Daniel Ramos",
-            texto: this.state.valorComentario
+            id: valorComentario,
+            login : "Daniel Ramos",
+            texto: valorComentario
         }]
 
         const fotoAtualizada = {
@@ -62,8 +53,8 @@ export default class Post extends Component {
             comentarios: novaLista
         }
 
-        this.setState({foto : foto, valorComentario : ""});
-        this.input.clear();
+        this.setState({foto : fotoAtualizada});
+        inputComentario.clear();
     }
 
     render() {
@@ -84,7 +75,7 @@ export default class Post extends Component {
                     <Likers likers={foto.likers}></Likers>
                     <Comentarios comentarios={foto.comentarios} />
                 </View>
-                <InputComentario setRef={(input) => this.input = input} carregaComentario={this.carregaComentario}/>
+                <InputComentario comentarioCallBack={this.carregaComentario.bind(this)} />
             </View>
 
         )
