@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     curtidas: {
@@ -28,9 +28,9 @@ const styles = StyleSheet.create({
         flex: 1,
         height: 40,
     },
-    botaoEnviar:{
+    botaoEnviar: {
         width: 30,
-        height:30
+        height: 30
     },
     novoComentario: {
         flexDirection: "row",

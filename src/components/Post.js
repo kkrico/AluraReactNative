@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Platform, KeyboardAvoidingView, Dimensions, TouchableOpacity, Text, View, Image, TextInput } from 'react-native';
+import { Dimensions, TouchableOpacity, Text, View, Image } from 'react-native';
 const width = Dimensions.get("screen").width;
-import Comentarios from "./Comentarios";
+import ListaComentarios from "./Comentarios";
 import Likers from "./Likers";
 import styles from "./Styles";
 import InputComentario from './InputComentario';
@@ -34,17 +34,13 @@ export default class Post extends Component {
         this.setState({ foto: fotoAtualizada });
     }
 
-    setRef(input) {
-        this.input = input;
-    }
-
     carregaComentario(valorComentario, inputComentario) {
         if (valorComentario == "")
             return;
 
         const novaLista = [...this.state.foto.comentarios, {
             id: valorComentario,
-            login : "Daniel Ramos",
+            login: "Daniel Ramos",
             texto: valorComentario
         }]
 
@@ -53,7 +49,7 @@ export default class Post extends Component {
             comentarios: novaLista
         }
 
-        this.setState({foto : fotoAtualizada});
+        this.setState({ foto: fotoAtualizada });
         inputComentario.clear();
     }
 
@@ -73,7 +69,7 @@ export default class Post extends Component {
                         <Image style={styles.botaoLike} source={this.carregaIcone(foto.likeada)} />
                     </TouchableOpacity>
                     <Likers likers={foto.likers}></Likers>
-                    <Comentarios comentarios={foto.comentarios} />
+                    <ListaComentarios comentarios={foto.comentarios} />
                 </View>
                 <InputComentario comentarioCallBack={this.carregaComentario.bind(this)} />
             </View>
