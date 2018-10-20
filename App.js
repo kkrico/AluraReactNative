@@ -23,17 +23,15 @@ export default class App extends Component {
     render() {
 
         return (
-            <KeyboardAvoidingView >
-                <FlatList style={styles.container}
-                    keyExtractor={foto => ("" + foto.id)}
-                    data={this.state.fotos}
-                    renderItem={({ item }) => {
-                        return <Post foto={item} />
-                    }}
-                >
-                </FlatList>
-            </KeyboardAvoidingView>
-
+            <FlatList style={styles.container}
+                keyboardShouldPersistTaps={"handled"}
+                keyExtractor={foto => ("" + foto.id)}
+                data={this.state.fotos}
+                renderItem={({ item }) => {
+                    return <Post foto={item} />
+                }}
+            >
+            </FlatList>
         )
     }
 }

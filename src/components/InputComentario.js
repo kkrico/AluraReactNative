@@ -12,17 +12,17 @@ class InputComentario extends React.Component {
 
     render() {
         const { comentarioCallBack } = this.props;
+        const adicionarComentario = () => {
+            comentarioCallBack(this.state.valorComentario, this.inputComentario);
+            this.setState({ valorComentario: "" });
+        };
         return (<View style={styles.novoComentario}>
             <TextInput placeholder="Adicione um comentário" style={styles.input}
                 ref={input => this.inputComentario = input}
+                onSubmitEditing={adicionarComentario}
                 onChangeText={text => this.setState({ valorComentario: text })}
             ></TextInput>
-            <TouchableOpacity onPress={
-                () => {
-                    comentarioCallBack(this.state.valorComentario, this.inputComentario);
-                    this.setState({valorComentario : ""});
-                }
-            }>
+            <TouchableOpacity onPress={adicionarComentario}>
                 <Image style={styles.botaoEnviar} source={require("../../resources/img/send.png")} />
             </TouchableOpacity>
         </View>)
