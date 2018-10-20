@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Dimensions, TouchableOpacity, Text, View, Image } from 'react-native';
 const width = Dimensions.get("screen").width;
 import ListaComentarios from "./Comentarios";
-import Likers from "./Likers";
 import styles from "./Styles";
 import InputComentario from './InputComentario';
+import Likes from "./Likes";
 
 export default class Post extends Component {
 
@@ -16,12 +16,10 @@ export default class Post extends Component {
         }
     }
 
-    carregaIcone(likeada) {
-        return likeada ? require("../../resources/img/s2-checked.png") : require("../../resources/img/s2.png")
-    }
 
-    like() {
-        const likeAtualizado = !this.state.foto.likeada;
+
+    like(likeAtualizado) {
+
         let { likers } = this.state.foto;
         likeAtualizado ? likers.push({}) : likers.pop({});
 
@@ -65,10 +63,7 @@ export default class Post extends Component {
                 </View>
                 <Image source={{ uri: foto.urlFoto }} style={{ width: width, height: width }} />
                 <View style={styles.rodape}>
-                    <TouchableOpacity onPress={this.like.bind(this, foto.likeada)}>
-                        <Image style={styles.botaoLike} source={this.carregaIcone(foto.likeada)} />
-                    </TouchableOpacity>
-                    <Likers likers={foto.likers}></Likers>
+                    <Likes likeCallBack={this.like.bind(this)} {...foto} />
                     <ListaComentarios comentarios={foto.comentarios} />
                 </View>
                 <InputComentario comentarioCallBack={this.carregaComentario.bind(this)} />
