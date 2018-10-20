@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Dimensions, TouchableOpacity, Text, View, Image } from 'react-native';
 const width = Dimensions.get("screen").width;
-import ListaComentarios from "./Comentarios";
+import ListaComentarios from "./ListaComentarios";
 import styles from "./Styles";
 import InputComentario from './InputComentario';
 import Likes from "./Likes";

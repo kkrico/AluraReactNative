@@ -1,5 +1,5 @@
 import styles from "./Styles";
-import Likers from "./Likers";
+import ListaLikers from "./ListaLikers";
 import React from 'react';
 import { TouchableOpacity, View, Image } from 'react-native';
 
@@ -10,7 +10,7 @@ const Likes = ({ likeada, likers, likeCallBack }) => {
         }}>
             <Image style={styles.botaoLike} source={carregaIcone(likeada)} />
         </TouchableOpacity>
-        <Likers likers={likers}></Likers>
+        <ListaLikers likers={likers}></ListaLikers>
     </View>
 }
 
