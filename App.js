@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import { KeyboardAvoidingView, Dimensions, FlatList, ScrollView, Platform, StyleSheet, Text, View, Image } from 'react-native';
 import Post from "./src/components/Post";
 import InstaluraAPI from "./src/API/InstaLuraApiAPI";
+import comTecladoSeIOS from "./src/components/util/comTecladoSeIOS";
 
-const width = Dimensions.get("screen").width;
-
-export default class App extends Component {
+class App extends Component {
 
     constructor(props) {
         super(props);
@@ -21,7 +20,6 @@ export default class App extends Component {
     }
 
     render() {
-
         return (
             <FlatList style={styles.container}
                 keyboardShouldPersistTaps={"handled"}
@@ -36,6 +34,7 @@ export default class App extends Component {
     }
 }
 
+export default comTecladoSeIOS(App);
 
 const styles = StyleSheet.create({
     container: {
