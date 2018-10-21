@@ -1,7 +1,7 @@
 import React from 'react';
-import comApresentaNadaSeListaVazia from "./util/comApresentaNadaSeListaVazia";
+import comApresentaNadaSeListaVazia from "../util/comApresentaNadaSeListaVazia";
 import { Text, View } from 'react-native';
-import styles from "./Styles";
+import styles from "../Styles";
 
 
 const innerComentarios = ({comentarios}) => {

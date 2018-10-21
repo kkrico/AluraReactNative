@@ -1,5 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 
+const isAndroid = Platform.OS == "android";
 const styles = StyleSheet.create({
     curtidas: {
         fontWeight: "bold",

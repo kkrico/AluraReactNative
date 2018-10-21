@@ -1,4 +1,4 @@
-import styles from "./Styles";
+import styles from "../Styles";
 import ListaLikers from "./ListaLikers";
 import React from 'react';
 import { TouchableOpacity, View, Image } from 'react-native';
@@ -15,7 +15,7 @@ const Likes = ({ likeada, likers, likeCallBack }) => {
 }
 
 const carregaIcone = (likeada) => {
-    return likeada ? require("../../resources/img/s2-checked.png") : require("../../resources/img/s2.png")
+    return likeada ? require("../../../resources/img/s2-checked.png") : require("../../../resources/img/s2.png")
 }
 
 export default Likes;

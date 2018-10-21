@@ -1,7 +1,7 @@
 import React from 'react';
-import { Text, View } from 'react-native';
-import styles from "./Styles";
-import comApresentaNadaSeListaVazia from "./util/comApresentaNadaSeListaVazia";
+import { Text } from 'react-native';
+import styles from "../Styles";
+import comApresentaNadaSeListaVazia from "../util/comApresentaNadaSeListaVazia";
 
 const innerLikers = ({likers}) => {
     return <Text style={styles.curtidas}>{likers.length} {likers.length > 1 ? "curtidas" : "curtida"}</Text>
