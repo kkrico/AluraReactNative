@@ -15,6 +15,19 @@ class InstaLuraApiAPI {
             }, delay);
         });
     }
+
+    static login(usuario, senha) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const usuarioRegistrado = "daniel.ramos";
+                const senhaRegistrada = "123456";
+                if (usuario == usuarioRegistrado && senha == senhaRegistrada)
+                    resolve({ ok: true, text: () => "JWT_TOKEN_DEMO" })
+                else
+                    resolve({ ok: false })
+            }, delay);
+        })
+    }
 }
 
 
