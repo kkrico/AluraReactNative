@@ -6,6 +6,11 @@ import comTecladoSeIOS from "../util/comTecladoSeIOS";
 
 class Feed extends Component {
 
+    static navigatorStyle = {
+        navBarTitleTextCentered: true,
+        navBarSubTitleTextCentered: true,
+    };
+    
     constructor(props) {
         super(props);
         this.state = {
