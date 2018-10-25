@@ -32,7 +32,7 @@ class Login extends React.Component {
         return (<View style={styles.container}>
             <Text style={styles.titulo}>Instalura</Text>
             <View style={styles.form}>
-                <TextInput style={styles.input} placeholder="login" onChangeText={texto => this.onChangeText(texto, "usuario")}></TextInput>
+                <TextInput style={styles.input} placeholder="login" onChangeText={texto => this.onChangeText(texto, "usuario")} autoCapitalize="none"></TextInput>
                 <TextInput style={styles.input} placeholder="Senha" onChangeText={texto => this.onChangeText(texto, "senha")} secureTextEntry={true}></TextInput>
                 <Button title="Login" onPress={this.efetuaLogin.bind(this)}></Button>
             </View>
