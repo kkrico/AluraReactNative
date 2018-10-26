@@ -6,6 +6,11 @@ const width = Dimensions.get("screen").width;
 
 class Login extends React.Component {
 
+    static navigatorStyle = {
+        navBarTitleTextCentered: true,
+        navBarSubTitleTextCentered: true,
+    };
+    
     constructor(props) {
         super(props);
 
@@ -44,10 +49,17 @@ class Login extends React.Component {
                 }
 
                 throw new Error("Não foi possível efetuar o login")
-            }).then(token => {
-                AsyncStorage.setItem("token", token);
-                AsyncStorage.setItem("usuario", this.state.usuario);
-            }).catch(e => this.setState({ mensagem: e.message }));
+            })
+            .then(token => {
+                AsyncStorage.setItem('token', token);
+                AsyncStorage.setItem('usuario', this.state.usuario);
+
+                this.props.navigator.resetTo({
+                    screen: 'Feed',
+                    title: 'Instalura - Feed'
+                })
+            })
+            .catch(e => this.setState({ mensagem: e.message }))
     }
 }
 
