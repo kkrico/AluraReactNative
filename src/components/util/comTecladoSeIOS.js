@@ -6,7 +6,7 @@ const comTecladoSeAndroid = (Component) => {
 
     return (props = {}) => {
         if (!isAndroid)
-            return (<KeyboardAvoidingView behavior="padding">
+            return (<KeyboardAvoidingView behavior="padding" keyboardVerticalOffset={70}>
                 <Component {...props} />
             </KeyboardAvoidingView>);
 
