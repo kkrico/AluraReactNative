@@ -26,7 +26,7 @@ class Feed extends Component {
 
     render() {
         return (
-            <FlatList style={styles.container}
+            <FlatList
                 keyboardShouldPersistTaps={"handled"}
                 keyExtractor={foto => ("" + foto.id)}
                 data={this.state.fotos}
@@ -43,9 +43,6 @@ export default comTecladoSeIOS(Feed);
 
 const isAndroid = Platform.OS == "android";
 const styles = StyleSheet.create({
-    container: {
-        marginTop: isAndroid ? 0 : 20
-    },
     cabecalho: { margin: 10, flexDirection: "row", alignItems: "center" },
     fotousuario: { width: 40, height: 40, marginRight: 10, borderRadius: 20 }
 })
